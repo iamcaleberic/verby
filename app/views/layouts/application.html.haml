@@ -6,6 +6,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons"
     %script{:async => "", :defer => "", :src => "https://apis.google.com/js/platform.js"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
     = csrf_meta_tags
   %body
     = yield
