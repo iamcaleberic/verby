@@ -3,7 +3,7 @@ class CreatePublications < ActiveRecord::Migration
     create_table :publications do |t|
       t.string :title
       t.string :pen_name
-      t.string :body ,:limit => 50000
+      t.string :body ,:limit => 10000
       t.string :email
       t.string :comments
       t.integer :likes
