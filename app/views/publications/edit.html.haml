@@ -1,0 +1,8 @@
+= render 'layouts/header'
+%h1 Editing publication 
+
+= render 'form'
+%br
+= link_to 'Show', @publication ,:class => 'ui small button' 
+\|
+= link_to 'Back', publications_path ,:class => 'ui small button' 

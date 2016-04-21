@@ -1,0 +1,22 @@
+.ui.form{:style => "padding-left:50px !important;padding-right:50px !important"}
+  = form_for @publication do |f|
+    - if @publication.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@publication.errors.count, "error")} prohibited this publication from being saved:"
+        %ul
+          - @publication.errors.full_messages.each do |msg|
+            %li= msg
+
+    .four.wide.field
+      = f.label :title
+      = f.text_field :title
+    .hidden.field
+      = f.hidden_field :pen_name ,:value => current_writer.penname
+    .field
+      = f.label :body
+      = f.cktext_area :body
+    .field
+      = f.hidden_field :email ,:value => current_writer.email
+
+    .actions
+      = f.submit 'Save' ,:class => 'ui small button'

@@ -1,0 +1,38 @@
+= render 'layouts/header'
+%center
+  .ui.form
+    .column{:style => "max-width:450px;"} 
+    %h2 Sign up
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .four.wide.field
+        = f.label :name
+        %br/
+        = f.text_field :name, autofocus: true
+      .four.wide.field
+        = f.label :penname
+        %br/
+        = f.text_field :penname, autofocus: true
+      .inline.field
+        = f.check_box :is_female, {}, true
+        = f.label :is_female, "Female"
+        = f.check_box :is_female, {}, false
+        = f.label :is_female, "Male"
+      .four.wide.field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true
+      .four.wide.field
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "off"
+      .four.wide.field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "off"
+      .actions
+        = f.submit "Sign up" ,:class => "ui small  button"
+    = render "devise/shared/links"

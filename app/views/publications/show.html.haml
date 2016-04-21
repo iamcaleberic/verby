@@ -1,0 +1,17 @@
+= render 'layouts/header'
+
+.ui.middle.aligned.grid{:style => "padding-left:50px !important;padding-right:50px !important"}
+  .column
+    .ui.medium.header
+      = @publication.title
+    = raw(@publication.body)
+    %i.spy.icon
+    = @publication.pen_name
+
+    %br    
+    -if signed_in?
+      = link_to 'Edit', edit_publication_path(@publication)
+    \|
+    = link_to 'Back', publications_path , :class => "ui small button"
+}
+}

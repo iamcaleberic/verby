@@ -1,0 +1,25 @@
+.ui.top.menu
+  .ui.container
+    %h2.active.item Verby 
+    = link_to "Home" ,root_path , :class => 'item'
+    -unless signed_in? 
+      = link_to "Publish" ,new_writer_session_path , :class => 'item'  
+    -else 
+      =link_to "Publish" ,new_publication_path , :class => 'item'
+    = link_to "Publications" ,publications_path , :class => 'item' 
+    = link_to "About" ,static_about_path , :class => 'item'
+    -if signed_in?
+      .right.menu
+        .item
+          = link_to "Profile" ,edit_writer_registration_path, :class => 'ui button'
+        .item
+          %i.sign.out.icon
+          = link_to "Log Out" ,destroy_writer_session_path, :method => :delete, :class => 'ui button'
+    -else
+      .right.menu
+        .item
+          %i.spy.icon
+          = link_to "Log in" , new_writer_session_path, :class => 'ui button'
+
+
+  

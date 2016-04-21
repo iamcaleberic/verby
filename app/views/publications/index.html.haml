@@ -1,0 +1,27 @@
+= render 'layouts/header'
+%br
+  -if signed_in?
+    = link_to 'New Publication', new_publication_path ,:class => "ui small button"
+%br
+
+
+- @publications.each do |publication|
+  .ui.card{:style => "float:left !important ; margin-right:5px !important; margin-left:15px !important;"}
+    .content
+      .header
+        = publication.title
+      / %br
+      / = raw(publication.body) 
+      %br
+      %i.spy.icon
+      = publication.pen_name 
+      .inline.field
+       
+        = link_to 'Show', publication , :class => "ui small button"
+       
+        -if signed_in?
+         
+          = link_to 'Edit', edit_publication_path(publication) ,:class => "ui small button"
+          = link_to 'Destroy', publication, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "ui small button"
+
+

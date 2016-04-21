@@ -1,0 +1,53 @@
+/Sidebar Menu
+.ui.vertical.inverted.sidebar.menu
+  = link_to "Home" ,root_path , :class => 'active item'
+  -unless signed_in? 
+    = link_to "Publish" ,new_writer_session_path , :class => 'item'  
+  -else 
+    =link_to "Publish" ,new_publication_path , :class => 'item' 
+  = link_to "About" ,static_about_path , :class => 'item'
+  = link_to "Publications" ,publications_path , :class => 'item'
+  -if signed_in?
+  -else
+    = link_to "Log in" , new_writer_session_path, :class => 'item'
+   
+/ Page Contents
+.pusher
+  .ui.inverted.vertical.masthead.center.aligned.segment
+    .ui.container
+      .ui.large.secondary.inverted.pointing.menu
+        %a.toc.item
+          %i.sidebar.icon
+        = link_to "Home" ,root_path , :class => 'active item'
+        -unless signed_in? 
+          = link_to "Publish" ,new_writer_session_path , :class => 'item'  
+        -else 
+          =link_to "Publish" ,new_publication_path , :class => 'item' 
+        = link_to "Publications" ,publications_path , :class => 'item'
+        = link_to "About" ,static_about_path , :class => 'item'
+        .right.menu
+          -if signed_in?
+            .item
+              %i.sign.out.icon
+              = link_to "Log Out" ,destroy_writer_session_path, :method => :delete, :class => 'item'
+          -else
+            .item
+              %i.spy.icon
+              = link_to "Log in" , new_writer_session_path, :class => 'item'
+            
+
+  
+    .ui.text.container
+      %h1.ui.inverted.header
+        Verby
+      %small Everybody loves a good story
+      %h2 Connecting creatives and consumers of creative content from the comfort and convenience of their devices. 
+      %p Accessible anywhere anytime 24 hours a day Hassle free
+      .ui.huge.primary.button
+        = link_to "Start Reading" ,publications_path, {:style =>"color:white !important; :hover color:none !important}"}
+        
+        %i.right.arrow.icon
+
+
+/ footer
+= render 'layouts/footer'
