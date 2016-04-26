@@ -32,7 +32,7 @@ group :development do
   gem 'spring'
 end
 
-gem 'capistrano', '~> 3.4.0'
+gem 'capistrano'
 gem 'capistrano-rvm'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
