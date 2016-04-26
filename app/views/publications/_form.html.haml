@@ -6,7 +6,7 @@
         %ul
           - @publication.errors.full_messages.each do |msg|
             %li= msg
-
+    = link_to "Having issues creating a publication?" ,static_guide_path
     .four.wide.field
       = f.label :title
       = f.text_field :title

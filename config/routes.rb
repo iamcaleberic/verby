@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :writers
 
   resources :publications
+  get 'static/guide'
   get 'static/about'
 
   get 'static/terms'
