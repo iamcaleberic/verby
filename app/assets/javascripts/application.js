@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor/init
 //= require turbolinks
 // Loads all Semantic javascripts
 //= require semantic-ui
-//= require ckeditor/init
 //= require_tree .
