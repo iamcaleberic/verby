@@ -21,7 +21,7 @@ gem "erb2haml", :group => :development
 gem 'font-awesome-sass'
 gem 'ckeditor'
 gem 'devise'
-
+gem 'kaminari'
 gem 'rails_12factor'
 group :development, :test do
   gem 'byebug'
