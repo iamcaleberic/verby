@@ -4,5 +4,8 @@ class HomeController < ApplicationController
   		redirect_to publications_path
   	end
   end
+  def mine
+  	@publications =Publication.all
+  end
 
 end

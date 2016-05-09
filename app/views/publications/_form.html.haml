@@ -16,7 +16,7 @@
       = f.label :body
       = f.cktext_area :body
     .field
-      = f.hidden_field :email ,:value => current_writer.email
-
+      = f.hidden_field :email 
+      = f.hidden_field :writer_id 
     .actions
-      = f.submit 'Save' ,:class => 'ui small button'
+      = f.submit 'Save' ,:class => 'ui small green button'

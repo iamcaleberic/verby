@@ -1,11 +1,8 @@
 = render 'layouts/header'
-%br
-  -if signed_in?
-    = link_to 'New Publication', new_publication_path ,:class => "ui small blue button"
-%br
 
-.ui.special.cards  
-  - @publications.each do |publication|
+.ui.special.cards
+
+  - @publications.each do |publication| 
     .ui.black.card{:style => "float:left !important ; margin-right:5px !important; margin-left:15px !important;"}
       .content
         .header
@@ -19,9 +16,7 @@
          
           = link_to 'Read', publication , :class => "ui small green button"
          
-          -if signed_in? && current_writer.id == publication.writer_id || signed_in? && current_writer.email == publication.email
+          -if signed_in? && current_writer.id == publication.writer_id
            
             = link_to 'Edit', edit_publication_path(publication) ,:class => "ui small button"
             = link_to 'Delete', publication, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "ui small red button"
-
-

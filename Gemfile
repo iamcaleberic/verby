@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5.2'
-gem 'mysql2'
-# gem 'sqlite3'
+# gem 'mysql2'
+gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -21,7 +21,7 @@ gem "erb2haml", :group => :development
 gem 'font-awesome-sass'
 gem 'ckeditor'
 gem 'devise'
-
+gem 'kaminari'
 gem 'rails_12factor'
 group :development, :test do
   gem 'byebug'

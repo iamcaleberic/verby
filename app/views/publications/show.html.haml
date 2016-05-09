@@ -9,9 +9,8 @@
     = @publication.pen_name
 
     %br    
-    -if signed_in?
-      = link_to 'Edit', edit_publication_path(@publication)
+    -if signed_in? && current_writer.id == @publication.writer_id ||  signed_in? && current_writer.email == publication.email
+      = link_to 'Edit', edit_publication_path(@publication) ,:class =>"ui small button"
     \|
-    = link_to 'Back', publications_path , :class => "ui small button"
-}
-}
+    = link_to 'Back', publications_path , :class => "ui small blue button"
+

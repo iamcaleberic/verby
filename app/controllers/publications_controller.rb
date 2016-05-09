@@ -12,7 +12,7 @@ class PublicationsController < ApplicationController
   # GET /publications/1.json
   def show
   end
-
+ 
   # GET /publications/new
   def new
     @publication = Publication.new
@@ -26,7 +26,8 @@ class PublicationsController < ApplicationController
   # POST /publications.json
   def create
     @publication = Publication.new(publication_params)
-
+    @publication.writer_id = current_writer.id
+    @publication.email = current_writer.email
     respond_to do |format|
       if @publication.save
         format.html { redirect_to @publication, notice: 'Publication was successfully created.' }
@@ -70,6 +71,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :pen_name, :body, :email, :comments, :likes, :dislikes)
+      params.require(:publication).permit(:title, :pen_name, :body, :email, :comments, :likes, :dislikes ,:writer_id)
     end
 end
