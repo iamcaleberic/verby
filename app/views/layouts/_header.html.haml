@@ -1,4 +1,4 @@
-.ui.top.inverted.menu
+.ui.small.top.inverted.menu
   .ui.container
     %h2.item Verby 
     = link_to "Home" ,root_path , :class => 'item'
@@ -11,9 +11,11 @@
     -if signed_in?
       .right.menu
         .item
+          %i.user.icon
+          = current_writer.name
+        .item
           = link_to "Profile" ,edit_writer_registration_path, :class => 'ui small button'
         .item
-          %i.sign.out.icon
           = link_to "Log Out" ,destroy_writer_session_path, :method => :delete, :class => 'ui small button'
     -else
       .right.menu

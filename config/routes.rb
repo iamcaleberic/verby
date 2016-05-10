@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-
+  # devise_for :writers, :path => '', :path_names => {:sign_up => 'become_a_writerx'}
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
