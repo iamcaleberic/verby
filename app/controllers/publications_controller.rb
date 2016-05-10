@@ -5,8 +5,14 @@ class PublicationsController < ApplicationController
   # GET /publications
   # GET /publications.json
   def index
-    @publications = Publication.all
+    if signed_in?
+      @publications = current_writer.publications
+    else
+      @publications = Publication.all
+    end
+    # byebug
   end
+
 
   # GET /publications/1
   # GET /publications/1.json
