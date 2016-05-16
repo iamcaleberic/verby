@@ -5,7 +5,7 @@ class PublicationsController < ApplicationController
   # GET /publications
   # GET /publications.json
   def index
-    if signed_in?
+    if writer_signed_in?
       @publications = current_writer.publications
     else
       @publications = Publication.all

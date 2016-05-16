@@ -12,7 +12,8 @@
       .right.menu
         .item
           %i.user.icon
-          = current_writer.name
+          -if writer_signed_in?
+            = current_writer.name
         .item
           = link_to "Profile" ,edit_writer_registration_path, :class => 'ui small button'
         .item
