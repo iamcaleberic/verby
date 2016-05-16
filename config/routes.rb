@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'view/index'
+
+  get 'view/show'
+
+  get 'view/index'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :superusers, :skip => [:registrations] 
   as :superuser do

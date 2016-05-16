@@ -6,15 +6,17 @@
       = link_to "Publish" ,new_writer_session_path , :class => 'item'  
     -else 
       =link_to "Publish" ,new_publication_path , :class => 'item'
-    = link_to "Publications" ,publications_path , :class => 'item' 
+    = link_to "Publications" ,view_index_path , :class => 'item' 
     = link_to "About" ,static_about_path , :class => 'item'
     -if writer_signed_in?
       .right.menu
         .item
           %i.user.icon
-            = current_writer.name
+          = current_writer.penname
         .item
           = link_to "Profile" ,edit_writer_registration_path, :class => 'ui small button'
+        .item
+          = link_to "My Publications" ,publications_path, :class => 'ui small button'
         .item
           = link_to "Log Out" ,destroy_writer_session_path, :method => :delete, :class => 'ui small button'
     -elsif superuser_signed_in?

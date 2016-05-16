@@ -1,0 +1,13 @@
+=render 'layouts/header'
+.ui.segment
+	.ui.special.cards
+		- @publications.each do |pub|
+			.ui.black.card{:style => "float:left !important ; margin-right:5px !important; margin-left:15px !important;"}
+				.content
+					.header
+						=pub.title
+					%br
+					%i.spy.icon
+					= pub.pen_name 
+					.inline.field
+					= link_to 'Read', pub, :class => "ui small green button"
