@@ -23,6 +23,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'rails_12factor'
 gem 'rails_admin'
+gem 'social-share-button'
 group :development, :test do
   gem 'byebug'
 end

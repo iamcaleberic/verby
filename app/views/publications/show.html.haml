@@ -5,10 +5,11 @@
     .ui.medium.header
       = @publication.title
     = raw(@publication.body)
+    = social_share_button_tag(@publication.title)
     %i.spy.icon
     = @publication.pen_name
 
-    %br    
+    %br
     -if writer_signed_in? && current_writer.id == @publication.writer_id ||  writer_signed_in? && current_writer.email == @publication.email || superuser_signed_in?
       = link_to 'Edit', edit_publication_path(@publication) ,:class =>"ui small button"
     \|
