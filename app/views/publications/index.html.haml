@@ -10,15 +10,13 @@
       .content
         .header
           = publication.title
-        / %br
-        / = raw(publication.body) 
-        %br
+      .extra.content
+        = publication.genre
+        .right.floated 
+          = publication.tags
+      .extra.content
         %i.spy.icon
         = publication.pen_name
-        .extra.content
-          = publication.genre
-          .right.floated 
-            =publication.tags
         .inline.field
          
           = link_to 'Read', publication , :class => "ui small green button"

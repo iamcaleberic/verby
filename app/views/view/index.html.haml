@@ -6,7 +6,11 @@
 				.content
 					.header
 						=pub.title
-					%br
+				.extra.content
+					= pub.genre
+					.right.floated
+						= pub.tags
+				.extra.content
 					%i.spy.icon
 					= pub.pen_name 
 					.inline.field
