@@ -20,15 +20,12 @@
         .item
           = link_to "Log Out" ,destroy_writer_session_path, :method => :delete, :class => 'ui small button'
     -elsif superuser_signed_in?
-      .right.menu
-        .item
-          = link_to "Log Out" ,destroy_superuser_session_path, :method => :delete, :class => 'ui small button'
+      .item
+        = link_to "Log Out" ,destroy_superuser_session_path, :method => :delete, :class => 'ui small button'
 
     -else
-      .right.menu
-        .item
-          %i.spy.icon
-          = link_to "Log in" , new_writer_session_path, :class => 'ui small button'
+      .item
+        %i.spy.icon
+        = link_to "Log in" , new_writer_session_path, :class => 'ui small button'
 
 
-  

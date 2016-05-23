@@ -16,6 +16,12 @@
       = f.label :body
       = f.cktext_area :body
     .field
+      = f.label :genre
+      = f.text_field :genre
+    .field
+      = f.label :tags
+      = f.text_field :tags
+    .field
       = f.hidden_field :email 
       = f.hidden_field :writer_id 
     .actions
