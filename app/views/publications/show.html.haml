@@ -6,8 +6,12 @@
       = @publication.title
     = raw(@publication.body)
     = social_share_button_tag(@publication.title)
-    %i.spy.icon
-    = @publication.pen_name
+    .inline.field
+      %i
+        = @publication.genre
+    .inline.field
+      %i.spy.icon
+      = @publication.pen_name
 
     %br
     -if writer_signed_in? && current_writer.id == @publication.writer_id ||  writer_signed_in? && current_writer.email == @publication.email || superuser_signed_in?
