@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-set :user , "root"
+set :user , "verby"
 set :application, 'verby'
 set :repo_url, 'git@github.com:iamcaleberic/verby.git'
 
@@ -7,7 +7,7 @@ set :repo_url, 'git@github.com:iamcaleberic/verby.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/root/verby'
+set :deploy_to, '/home/verby'
 
 # Default value for :scm is :git
 # set :scm, :git
