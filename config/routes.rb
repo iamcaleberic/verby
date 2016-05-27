@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  
+  root 'home#index'
   get 'view/index'
-
   get 'view/show'
-
   get 'view/index'
-
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :superusers, :skip => [:registrations] 
   as :superuser do
@@ -13,20 +13,15 @@ Rails.application.routes.draw do
   end
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :writers
-
   resources :publications
   get 'static/guide'
   get 'static/about'
-
   get 'static/terms'
-
   get 'home/index'
-  get 'home/mine'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
   # devise_for :writers, :path => '', :path_names => {:sign_up => 'become_a_writerx'}
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
