@@ -11,6 +11,11 @@ default: &default
   username: root
   password: 
 
+test:
+  <<: *default
+  database: verby
+
+
 development:
   <<: *default
   database: verby

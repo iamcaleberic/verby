@@ -25,7 +25,12 @@ gem 'rails_12factor'
 gem 'rails_admin'
 gem 'social-share-button'
 group :development, :test do
+  gem 'minitest', '~> 5.9'
   gem 'byebug'
+  gem 'minitest-reporters'
+  gem 'mini_backtrace'
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
 group :development do

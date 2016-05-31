@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class PublicationsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
+    sign_in Writer.first
+    sign_in Superuser.first
     @publication = publications(:one)
   end
 
