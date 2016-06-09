@@ -24,6 +24,8 @@ gem 'kaminari'
 gem 'rails_12factor'
 gem 'rails_admin'
 gem 'social-share-button'
+gem 'figaro'
+
 group :development, :test do
   gem 'minitest', '~> 5.9'
   gem 'byebug'
