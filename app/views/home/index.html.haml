@@ -1,6 +1,6 @@
 /Sidebar Menu
 .ui.vertical.inverted.sidebar.menu
-  = link_to "Home" ,root_path , :class => 'active item'
+  = link_to "Verby" ,root_path , :class => 'active item'
   -unless signed_in? 
     = link_to "Publish" ,new_writer_session_path , :class => 'item'  
   -else 
@@ -18,7 +18,7 @@
       .ui.large.secondary.inverted.pointing.menu
         %a.toc.item
           %i.sidebar.icon
-        = link_to "Home" ,root_path , :class => 'active item'
+        = link_to "Verby" ,root_path , :class => 'active item'
         -unless signed_in? 
           = link_to "Publish" ,new_writer_session_path , :class => 'item'  
         -else 
@@ -32,8 +32,10 @@
               = link_to "Log Out" ,destroy_writer_session_path, :method => :delete, :class => 'item'
           -else
             .item
-              %i.spy.icon
-              = link_to "Log in" , new_writer_session_path, :class => 'item'
+              
+              = link_to  new_writer_session_path, :class => 'item' do
+                %i.spy.icon
+                Log in
             
 
   

@@ -8,7 +8,7 @@ class PublicationsController < ApplicationController
     if writer_signed_in?
       @publications = current_writer.publications
     else
-      @publications = Publication.all
+      @publications = Publication.order("created_at desc").all
     end
     # byebug
   end

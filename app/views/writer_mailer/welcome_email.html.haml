@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+
+    %h1{:style => "color:black"}
+      Welcome to Verby, #{@writer.name}
+    %hr
+    %p
+      You have successfully signed up to Verby,
+      your pen name is: #{@writer.penname}.
+      %br
+    %p
+      To login to the site, just follow this link: #{@url}.
+    %p Thanks for joining and have a great day!
+    %hr
+    %i{:style => "color:green"} This is automatically generated email.Please Do Not Reply.

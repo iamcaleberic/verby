@@ -5,7 +5,7 @@
 			.ui.black.card{:style => "float:left !important ; margin-right:5px !important; margin-left:15px !important;"}
 				.content
 					.header
-						=pub.title
+						= link_to pub.title , pub
 				.extra.content
 					= pub.genre
 					.right.floated
@@ -14,4 +14,4 @@
 					%i.spy.icon
 					= pub.pen_name 
 					.inline.field
-					= link_to 'Read', pub, :class => "ui small green button"
+					 

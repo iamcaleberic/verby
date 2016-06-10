@@ -1,4 +1,7 @@
 = render 'layouts/header'
+/ - @publications.each do |g|
+/   %li
+/     =link_to g.genre, g
 %br
   -if signed_in?
     = link_to 'New Publication', new_publication_path ,:class => "ui small blue button"
@@ -8,8 +11,8 @@
   - @publications.each do |publication|
     .ui.black.card{:style => "float:left !important ; margin-right:5px !important; margin-left:15px !important;"}
       .content
-        .header
-          = publication.title
+        .ui.black.header
+          = link_to publication.title , publication 
       .extra.content
         = publication.genre
         .right.floated 
@@ -17,10 +20,9 @@
       .extra.content
         %i.spy.icon
         = publication.pen_name
+      .extra.content  
         .inline.field
-         
-          = link_to 'Read', publication , :class => "ui small green button"
-         
+        
           -if writer_signed_in? && current_writer.id == publication.writer_id || writer_signed_in? && current_writer.email == publication.email || superuser_signed_in?
            
             = link_to 'Edit', edit_publication_path(publication) ,:class => "ui small button"

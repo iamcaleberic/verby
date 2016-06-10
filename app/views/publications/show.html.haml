@@ -5,10 +5,12 @@
     .ui.medium.header
       = @publication.title
     = raw(@publication.body)
+    %br
     = social_share_button_tag(@publication.title)
     .inline.field
       %i
         = @publication.genre
+    %br
     .inline.field
       %i.spy.icon
       = @publication.pen_name
