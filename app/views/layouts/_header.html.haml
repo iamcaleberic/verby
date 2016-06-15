@@ -14,11 +14,11 @@
           %i.edit.icon
           = current_writer.penname
       .item
-        = link_to "Log Out" ,destroy_writer_session_path, :method => :delete
+        = link_to "Log Out" ,destroy_writer_session_path, :method => :delete ,:class => "ui item"
   -elsif superuser_signed_in?
     .right.menu
       .item
-        = link_to "Log Out" ,destroy_superuser_session_path, :method => :delete, :class => 'ui small button'
+        = link_to "Log Out" ,destroy_superuser_session_path, :method => :delete, :class => 'ui item'
 
   -else
     .right.menu

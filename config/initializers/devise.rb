@@ -16,7 +16,7 @@ Devise.setup do |config|
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
 
   # Configure the class responsible to send e-mails.
-  config.mailer = 'ActionMailer::Base'
+  config.mailer = 'WriterMailer'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
