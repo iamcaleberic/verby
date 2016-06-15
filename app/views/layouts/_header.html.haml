@@ -1,25 +1,10 @@
-/Sidebar Menu
-.ui.vertical.inverted.sidebar.menu
-  = link_to "Home" ,root_path , :class => 'active item'
-  -unless signed_in? 
-    = link_to "Publish" ,new_writer_session_path , :class => 'item'  
-  -else 
-    =link_to "Publish" ,new_publication_path , :class => 'item' 
-  = link_to "About" ,static_about_path , :class => 'item'
-  = link_to "Publications" ,publications_path , :class => 'item'
-  -if signed_in?
-  -else
-    = link_to "Log in" , new_writer_session_path, :class => 'item'
-/header
-.ui.top.inverted.menu
- 
+.ui.top.small.inverted.menu
+  %a.toc.item
+    %i.sidebar.icon 
+      /Sidebar Menu
+      =render 'home/sidebar'
   %h2  
     = link_to "Verby" ,root_path , :class => 'item'
-  -unless signed_in? 
-    = link_to "Publish" ,new_writer_session_path , :class => 'item' 
-    = link_to "About" ,static_about_path , :class => 'item' 
-  -else 
-    =link_to "Publications" ,view_index_path , :class => 'item'
   
   
   -if writer_signed_in?
@@ -28,8 +13,6 @@
         = link_to edit_writer_registration_path  do
           %i.edit.icon
           = current_writer.penname
-      .item
-        = link_to "My Publications" ,publications_path
       .item
         = link_to "Log Out" ,destroy_writer_session_path, :method => :delete
   -elsif superuser_signed_in?
@@ -41,8 +24,8 @@
     .right.menu
       .item
          
-        = link_to new_writer_session_path, :class => 'ui item' do
+        = link_to new_writer_registration_path, :class => 'ui item' do
           %i.spy.icon
-          Log in 
+          Sign Up
 
 

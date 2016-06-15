@@ -7,5 +7,5 @@ class HomeController < ApplicationController
   def mine
   	@publications =Publication.all
   end
-
+  
 end

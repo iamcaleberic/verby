@@ -1,4 +1,5 @@
 =render 'layouts/header'
+= render  'publications/gmodal'
 .ui.segment
 	.ui.special.cards
 		- @publications.each do |pub|
@@ -12,6 +13,6 @@
 						= pub.tags
 				.extra.content
 					%i.spy.icon
-					= pub.pen_name 
+					= link_to pub.pen_name , publications_view_path(pub.writer_id)
 					.inline.field
 					 

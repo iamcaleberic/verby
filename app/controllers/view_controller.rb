@@ -5,4 +5,8 @@ class ViewController < ApplicationController
 
   def show
   end
+   def publications
+    @writer = Writer.find(params[:id])
+    @publications = @writer.publications
+  end
 end

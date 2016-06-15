@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5.2'
+gem 'rails', '4.2.6'
 gem 'mysql2'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
@@ -25,7 +25,7 @@ gem 'rails_12factor'
 gem 'rails_admin'
 gem 'social-share-button'
 gem 'figaro'
-
+gem "socialization"
 group :development, :test do
   gem 'minitest', '~> 5.9'
   gem 'byebug'

@@ -4,12 +4,15 @@ class PublicationsController < ApplicationController
 
   # GET /publications
   # GET /publications.json
+ 
   def index
     if writer_signed_in?
       @publications = current_writer.publications
     else
       @publications = Publication.order("created_at desc").all
+      
     end
+
     # byebug
   end
 

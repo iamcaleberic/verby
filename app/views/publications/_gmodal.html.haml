@@ -1,0 +1,30 @@
+:javascript
+
+  $(document).ready(function(){
+    $("#mymodalg").click(function(){
+    $('.ui.modal').modal('show');
+    });
+  });
+
+.ui.small.button{id: "mymodalg"} 
+  Genres
+.ui.modal
+  %i.close.icon
+  .header
+    Genres
+  .image.content
+    .ui.medium.image
+      %img{:src => ""}
+        %h3 Verby
+    .description
+      .ui.header Current Publications Genres
+      - @publications.each do |g|
+        .ui.image.label
+          =link_to g.genre, g
+          %i.delete.icon
+  .actions
+    .ui.black.deny.button
+      Nope
+    .ui.positive.right.labeled.icon.button
+      Thats it
+      %i.checkmark.icon

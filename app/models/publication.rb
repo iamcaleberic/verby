@@ -5,5 +5,5 @@ class Publication < ActiveRecord::Base
 	validates :title, presence: true
 	validates :body, presence: true
 	validates :pen_name, presence: true
-	
+	acts_as_likeable
 end

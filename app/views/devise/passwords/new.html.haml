@@ -7,7 +7,7 @@
 			.four.wide.field
 				= f.label :email
 				%br/
-				= f.email_field :email, autofocus: true
+				= f.email_field :email, autofocus: true , required: true
 			.actions
 				= f.submit "Send me reset password instructions" , :class => "ui small button"
 			= render "devise/shared/links"

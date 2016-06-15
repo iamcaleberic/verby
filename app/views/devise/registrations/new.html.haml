@@ -1,4 +1,3 @@
-
 = render 'layouts/header'
 %center
   .ui.form
@@ -13,28 +12,37 @@
       .four.wide.field
         = f.label :penname
         %br/
-        = f.text_field :penname, autofocus: true
+        = f.text_field :penname, autofocus: true, required: true 
       .inline.field
-        = f.check_box :is_female, {}, true
+        = f.label :gender
+        %br/
+        %br/
+        = f.check_box :is_female, {}, true , required: true 
         = f.label :is_female, "Female"
-        = f.check_box :is_female, {}, false
+        = f.check_box :is_female, {}, false, required: true 
         = f.label :is_female, "Male"
       .four.wide.field
         = f.label :email
         %br/
-        = f.email_field :email, autofocus: true
+        = f.email_field :email, autofocus: true , required: true 
       .four.wide.field
         = f.label :password
         - if @minimum_password_length
           %em
             (#{@minimum_password_length} characters minimum)
         %br/
-        = f.password_field :password, autocomplete: "off"
+        = f.password_field :password, autocomplete: "off" , required: true 
       .four.wide.field
         = f.label :password_confirmation
         %br/
-        = f.password_field :password_confirmation, autocomplete: "off"
-      .actions
+        = f.password_field :password_confirmation, autocomplete: "off" , required: true 
+      .inline.field
+        %input{:type => "checkbox" , required: true } 
+          "I agree to the terms and conditions"
+      .inline.field
+        .actions
+
         = f.submit "Sign up" ,:class => "ui small green button"
-      %br
-    = render "devise/shared/links"
+        = render "devise/shared/links"
+%br
+= render 'layouts/footer'

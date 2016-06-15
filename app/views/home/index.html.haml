@@ -1,24 +1,14 @@
 /Sidebar Menu
-.ui.vertical.inverted.sidebar.menu
-  = link_to "Verby" ,root_path , :class => 'active item'
-  -unless signed_in? 
-    = link_to "Publish" ,new_writer_session_path , :class => 'item'  
-  -else 
-    =link_to "Publish" ,new_publication_path , :class => 'item' 
-  = link_to "About" ,static_about_path , :class => 'item'
-  = link_to "Publications" ,publications_path , :class => 'item'
-  -if signed_in?
-  -else
-    = link_to "Log in" , new_writer_session_path, :class => 'item'
-   
+= render 'home/sidebar'
 / Page Contents
 .pusher
   .ui.inverted.vertical.masthead.center.aligned.segment
     .ui.container
-      .ui.large.secondary.inverted.pointing.menu
+      .ui.small.secondary.inverted.pointing.menu
         %a.toc.item
           %i.sidebar.icon
-        = link_to "Verby" ,root_path , :class => 'active item'
+        %h3
+          = link_to "Verby" ,root_path , :class => 'active item'
         -unless signed_in? 
           = link_to "Publish" ,new_writer_session_path , :class => 'item'  
         -else 
@@ -33,9 +23,9 @@
           -else
             .item
               
-              = link_to  new_writer_session_path, :class => 'item' do
+              = link_to  new_writer_registration_path, :class => 'item' do
                 %i.spy.icon
-                Log in
+                Sign Up
             
 
   

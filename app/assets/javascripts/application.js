@@ -16,5 +16,5 @@
 //= require turbolinks
 // Loads all Semantic javascripts
 //= require semantic-ui
-//= require social-share-button
 //= require_tree .
+//= require social-share-button
