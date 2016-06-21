@@ -1,12 +1,10 @@
 = render 'layouts/header'
 = render  'publications/gmodal'
-%br
-%br
+.ui.basic.segment
   -if signed_in?
     = link_to 'New Publication', new_publication_path ,:class => "ui small blue button"
-%br
 
-.ui.special.cards  
+.ui.special.cards{:style => "padding-left:50px !important;padding-right:50px !important"}
   - @publications.each do |publication|
     .ui.black.card{:style => "float:left !important ; margin-right:5px !important; margin-left:15px !important;"}
       .content

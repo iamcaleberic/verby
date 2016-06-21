@@ -6,25 +6,29 @@
     });
   });
 
-.ui.small.button{id: "mymodalg"} 
-  Genres
-.ui.modal
-  %i.close.icon
-  .header
+.ui.basic.segment
+  .ui.small.button{id: "mymodalg"} 
     Genres
-  .image.content
-    .ui.medium.image
-      %img{:src => ""}
-        %h3 Verby
-    .description
-      .ui.header Current Publications Genres
-      - @publications.each do |g|
-        .ui.image.label
-          =link_to g.genre, g
-          %i.delete.icon
-  .actions
-    .ui.black.deny.button
-      Nope
-    .ui.positive.right.labeled.icon.button
-      Thats it
-      %i.checkmark.icon
+  .ui.modal
+    %i.close.icon
+    .header
+      Genres
+    .image.content
+      .ui.medium.image
+        %img{:src => ""}
+          %h3 Verby
+      .description
+        .ui.header Current Publications Genres
+        - @publications.each do |g|
+          -if g.genre.present?
+            .ui.image.label
+              = link_to g.genre, g
+              %i.delete.icon
+          -else
+            
+    .actions
+      .ui.black.deny.button
+        Nope
+      .ui.positive.right.labeled.icon.button
+        Thats it
+        %i.checkmark.icon
