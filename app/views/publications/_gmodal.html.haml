@@ -21,7 +21,7 @@
         .ui.header Current Publications Genres
         - @publications.each do |g|
           -if g.genre.present?
-            .ui.image.label
+            .ui.image.label{:style => "margin:2px; !important"}
               = link_to g.genre, g
               %i.delete.icon
           -else
