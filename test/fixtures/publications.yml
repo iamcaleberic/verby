@@ -1,12 +1,12 @@
 one:
     id: 1
-    title: string
-    pen_name: string
-    body: string
-    email: string
-    comments: string
+    title: title_one
+    pen_name: pen_name_one
+    body: body_one
+    email: email@info.com
+    comments: comments_one
     likes: 2
     dislikes: 2
     writer_id: 1
-    genre: string
-    tags: string
+    genre: genre_one
+    tags: tags_one

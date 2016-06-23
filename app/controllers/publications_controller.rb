@@ -1,16 +1,16 @@
 class PublicationsController < ApplicationController
   before_action :authenticate_writer!, only: [:create ,:edit ,:update, :destroy]
+  before_filter :find_publication, only: [:show]
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
 
   # GET /publications
   # GET /publications.json
- 
   def index
     if writer_signed_in?
       @publications = current_writer.publications
     else
       @publications = Publication.order("created_at desc").all
-      
+
     end
 
     # byebug
@@ -21,7 +21,7 @@ class PublicationsController < ApplicationController
   # GET /publications/1.json
   def show
   end
- 
+
   # GET /publications/new
   def new
     @publication = Publication.new
@@ -75,11 +75,23 @@ class PublicationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
-      @publication = Publication.find(params[:id])
+      @publication = Publication.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
       params.require(:publication).permit(:title, :pen_name, :body, :email, :comments, :likes, :dislikes ,:writer_id, :genre, :tags)
+    end
+
+    # Find publications using old id
+    def find_publication
+      @publication = Publication.friendly.find params[:id]
+
+      # If an old id or a numeric id was used to find the record, then
+      # the request path will not match the publication_path, and we should do
+      # a 301 redirect that uses the current friendly id.
+      if request.path != publication_path(@publication)
+        return redirect_to @publication, :status => :moved_permanently
+      end
     end
 end

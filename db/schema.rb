@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623070946) do
+ActiveRecord::Schema.define(version: 20160623085014) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -39,6 +39,19 @@ ActiveRecord::Schema.define(version: 20160623070946) do
 
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "likes", force: :cascade do |t|
     t.string   "liker_type"
@@ -75,8 +88,10 @@ ActiveRecord::Schema.define(version: 20160623070946) do
     t.integer  "writer_id"
     t.string   "genre"
     t.string   "tags"
+    t.string   "slug"
   end
 
+  add_index "publications", ["slug"], name: "index_publications_on_slug", unique: true
   add_index "publications", ["writer_id"], name: "index_publications_on_writer_id"
 
   create_table "superusers", force: :cascade do |t|
