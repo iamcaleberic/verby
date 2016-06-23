@@ -3,9 +3,9 @@ require 'test_helper'
 class PublicationsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
-    sign_in Writer.first
-    sign_in Superuser.first
-    @publication = Publication.first
+    sign_in writers(:one)
+    sign_in superusers(:one)
+    @publication = publications(:one)
   end
 
   test "should get index" do

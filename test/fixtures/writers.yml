@@ -1,0 +1,11 @@
+one:
+    id: 1
+    email: string
+    encrypted_password: string
+    name: string
+    penname: string
+    phone: 12345678
+    date_of_birth: 12/23/34
+    experience: string
+    is_female: false
+    avatar_file_name: string

@@ -1,0 +1,12 @@
+one:
+    id: 1
+    title: string
+    pen_name: string
+    body: string
+    email: string
+    comments: string
+    likes: 2
+    dislikes: 2
+    writer_id: 1
+    genre: string
+    tags: string
