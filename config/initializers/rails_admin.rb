@@ -6,7 +6,7 @@ RailsAdmin.config do |config|
   config.authenticate_with do
     warden.authenticate! scope: :superuser
   end
-  # config.current_user_method(&:current_user)
+  config.current_user_method(&:current_superuser)
 
   ## == Cancan ==
   # config.authorize_with :cancan

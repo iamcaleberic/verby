@@ -5,7 +5,7 @@ class PublicationsControllerTest < ActionController::TestCase
   setup do
     sign_in Writer.first
     sign_in Superuser.first
-    @publication = publications(:one)
+    @publication = Publication.first
   end
 
   test "should get index" do

@@ -8,7 +8,7 @@ class Writer < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   has_many :publications
  
-  #after_create :send_welcome_email
+  after_create :send_welcome_email
   def send_welcome_email
 	  WriterMailer.welcome_email(self).deliver
   end
