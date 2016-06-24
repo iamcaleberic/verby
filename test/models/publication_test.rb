@@ -8,4 +8,8 @@ class PublicationTest < ActiveSupport::TestCase
     assert_not publication.valid?
     assert_equal [:title, :body, :pen_name], publication.errors.keys
   end
+  test "Publication doesn't save without all parameters" do
+    publication = Publication.create(title: 'Post title')
+    assert_not publication.valid?, 'The publication should not be valid when missing body'
+  end
 end
