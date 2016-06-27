@@ -18,3 +18,5 @@
 //= require semantic-ui
 //= require_tree .
 //= require social-share-button
+//= require jquery.inview.min.js
+

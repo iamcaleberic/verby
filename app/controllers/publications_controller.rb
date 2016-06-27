@@ -6,13 +6,13 @@ class PublicationsController < ApplicationController
   # GET /publications.json
  
   def index
-    if writer_signed_in?
-      @publications = current_writer.publications
-    else
-      @publications = Publication.order("created_at desc").all
-      
-    end
+    @publications = Publication.paginate(:page => params[:page])
 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @publications }
+      format.js
+    end
     # byebug
   end
 
@@ -32,8 +32,8 @@ class PublicationsController < ApplicationController
     authorize! :edit, @publication
   end
 
-  # POST /publications
-  # POST /publications.json
+  # publication /publications
+  # publication /publications.json
   def create
     @publication = Publication.new(publication_params)
     @publication.writer_id = current_writer.id

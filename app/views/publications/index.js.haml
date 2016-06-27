@@ -1,0 +1,5 @@
+$('.publications').append('#{escape_javascript(render partial: "layouts/publications", :locals => { :publications => @publications })}');
+$('a.load-more-publications').attr('href', '#{publications_path page: @publications.next_page}');
+ 
+- unless @publications.next_page
+  $('a.load-more-publications').remove();
