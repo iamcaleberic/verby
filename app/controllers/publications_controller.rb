@@ -29,6 +29,7 @@ class PublicationsController < ApplicationController
 
   # GET /publications/1/edit
   def edit
+    authorize! :edit, @publication
   end
 
   # POST /publications
@@ -51,6 +52,7 @@ class PublicationsController < ApplicationController
   # PATCH/PUT /publications/1
   # PATCH/PUT /publications/1.json
   def update
+    authorize! :update, @publication 
     respond_to do |format|
       if @publication.update(publication_params)
         format.html { redirect_to @publication, notice: 'Publication was successfully updated.' }
@@ -60,11 +62,13 @@ class PublicationsController < ApplicationController
         format.json { render json: @publication.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /publications/1
   # DELETE /publications/1.json
   def destroy
+    authorize! :destroy, @publication 
     @publication.destroy
     respond_to do |format|
       format.html { redirect_to publications_url, notice: 'Publication was successfully destroyed.' }

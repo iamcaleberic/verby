@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521144154) do
+ActiveRecord::Schema.define(version: 20160627111603) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -29,22 +29,8 @@ ActiveRecord::Schema.define(version: 20160521144154) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
-  create_table "publications", force: :cascade do |t|
-    t.string   "title"
-    t.string   "pen_name"
-    t.string   "body",       limit: 10000
-    t.string   "email"
-    t.string   "comments"
-    t.integer  "likes"
-    t.integer  "dislikes"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "writer_id"
-    t.string   "genre"
-    t.string   "tags"
-  end
-
-  add_index "publications", ["writer_id"], name: "index_publications_on_writer_id"
+# Could not dump table "publications" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "superusers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
