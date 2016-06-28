@@ -32,3 +32,5 @@
       .ui.positive.right.labeled.icon.button
         Thats it
         %i.checkmark.icon
+  -if signed_in?
+    = link_to 'New Publication', new_publication_path ,:class => "ui small blue button"

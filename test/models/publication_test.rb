@@ -12,4 +12,10 @@ class PublicationTest < ActiveSupport::TestCase
     publication = Publication.create(title: 'Post title')
     assert_not publication.valid?, 'The publication should not be valid when missing body'
   end
+  test "poop is acceptable" do
+    assert_nothing_raised do
+      @publication = publications(:two)
+    end
+  end  
+
 end

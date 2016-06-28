@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   get 'static/terms'
   get 'home/index'
   resources :view do
-    member do
-      get :publications
-    end
+      
+    resources :my_publications
+    
   end
 
 end
