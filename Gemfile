@@ -28,7 +28,7 @@ gem "socialization"
 gem 'cancancan'
 gem 'friendly_id', '~> 5.1'
 gem 'jquery-turbolinks'
-
+gem 'rollbar'
 group :development, :test do
   gem 'minitest', '~> 5.9'
   gem 'byebug'
