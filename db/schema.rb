@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 20160627111603) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "publications", force: :cascade do |t|
     t.string   "title"
     t.string   "pen_name"
@@ -42,9 +55,11 @@ ActiveRecord::Schema.define(version: 20160627111603) do
     t.integer  "writer_id"
     t.string   "genre"
     t.string   "tags"
+    t.string   "slug"
     t.integer  "superuser_id"
   end
 
+  add_index "publications", ["slug"], name: "index_publications_on_slug", unique: true
   add_index "publications", ["superuser_id"], name: "index_publications_on_superuser_id"
   add_index "publications", ["writer_id"], name: "index_publications_on_writer_id"
 
@@ -92,6 +107,7 @@ ActiveRecord::Schema.define(version: 20160627111603) do
   end
 
   add_index "writers", ["email"], name: "index_writers_on_email", unique: true
+  add_index "writers", ["penname"], name: "index_writers_on_penname", unique: true
   add_index "writers", ["reset_password_token"], name: "index_writers_on_reset_password_token", unique: true
 
 end

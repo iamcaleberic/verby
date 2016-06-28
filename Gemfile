@@ -27,6 +27,7 @@ gem 'social-share-button'
 gem 'figaro'
 gem "socialization"
 gem 'cancancan'
+gem 'friendly_id', '~> 5.1'
 group :development, :test do
   gem 'minitest', '~> 5.9'
   gem 'byebug'
