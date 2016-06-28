@@ -7,7 +7,8 @@ class PublicationsController < ApplicationController
   # GET /publications
   # GET /publications.json
   def index
-    @publications = Publication.paginate(:page => params[:page])
+    
+    @publications = Publication.paginate(:page => params[:page]).order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb

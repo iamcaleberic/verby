@@ -20,7 +20,6 @@ gem "erb2haml", :group => :development
 gem 'font-awesome-sass'
 gem 'ckeditor'
 gem 'devise'
-gem 'kaminari'
 gem 'rails_12factor'
 gem 'rails_admin'
 gem 'social-share-button'
@@ -28,6 +27,8 @@ gem 'figaro'
 gem "socialization"
 gem 'cancancan'
 gem 'friendly_id', '~> 5.1'
+gem 'jquery-turbolinks'
+
 group :development, :test do
   gem 'minitest', '~> 5.9'
   gem 'byebug'
