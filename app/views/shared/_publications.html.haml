@@ -1,3 +1,11 @@
+:javascript
+	$('.ui.star.rating')
+	  .rating({
+	    initialRating: 1,
+	    maxRating: 5
+	  })
+	;
+
 .ui.special.cards{:style => "padding-left:3%!important;"}
 	- @publications.each do |publication|
 		.ui.black.card{:style => "float:left !important ; margin-right:5px !important; margin-left:15px !important;"}
@@ -10,7 +18,10 @@
 					= publication.tags
 			.extra.content
 				%i.spy.icon
-				= publication.pen_name  
+				= publication.pen_name 
+				.right.floated
+			.extra.content
+				.ui.star.rating{"data-rating" => "1"}
 			.extra.content  
 				.inline.field
 					-if writer_signed_in? && current_writer.id == publication.writer_id || writer_signed_in? && current_writer.email == publication.email || superuser_signed_in?

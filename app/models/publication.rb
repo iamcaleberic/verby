@@ -1,5 +1,6 @@
 class Publication < ActiveRecord::Base
   	include FriendlyId
+  	
   	self.per_page = 8
   	validates :title, presence: true
 	validates :body, presence: true
