@@ -43,6 +43,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_votable (0.10.0)
     airbrussh (1.0.2)
       sshkit (>= 1.6.1, != 1.7.0)
     ansi (1.5.0)
@@ -189,7 +190,6 @@ GEM
     notiffany (0.1.0)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oj (2.12.14)
     orm_adapter (0.5.0)
     paperclip (4.3.6)
       activemodel (>= 3.2.0)
@@ -266,8 +266,6 @@ GEM
     remotipart (1.2.1)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
-    rollbar (2.11.5)
-      multi_json
     ruby-progressbar (1.8.1)
     ruby_dep (1.3.1)
     ruby_parser (3.8.2)
@@ -289,8 +287,6 @@ GEM
     social-share-button (0.2.1)
       coffee-rails
       sass-rails
-    socialization (1.2.0)
-      activerecord
     spring (1.7.1)
     sprockets (3.6.0)
       concurrent-ruby (~> 1.0)
@@ -328,6 +324,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable
   bcrypt (~> 3.1.7)
   byebug
   cancancan
@@ -352,18 +349,15 @@ DEPENDENCIES
   minitest (~> 5.9)
   minitest-reporters
   mysql2
-  oj (~> 2.12.14)
   paperclip
   public_activity
   rails (= 4.2.6)
   rails_12factor
   rails_admin
-  rollbar
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   semantic-ui-sass!
   social-share-button
-  socialization
   spring
   sqlite3
   therubyracer

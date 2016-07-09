@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   
-  root 'home#index'
-  get 'view/index'
-  get 'view/show'
-  get 'view/index'
-  
+  root 'home#index'  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :superusers, :skip => [:registrations] 
     as :superuser do
@@ -13,15 +9,16 @@ Rails.application.routes.draw do
   end
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :writers
-  resources :publications
+  resources :publications do
+    member do
+      put "like", to: "publications#upvote"
+      put "dislike", to: "publications#downvote"
+    end
+  end
   get 'static/guide'
   get 'static/about'
   get 'static/terms'
   get 'home/index'
-  resources :view do
-      
-    resources :my_publications
-    
-  end
+  
 
 end

@@ -17,10 +17,10 @@
       = f.cktext_area :body
     .field
       = f.label :genre
-      = f.text_field :genre
+      = f.text_field :genre , :required => true
     .field
-      = f.label :tags
-      = f.text_field :tags
+      = f.label :tags 
+      = f.text_field :tags , :required => true
     .field
       = f.hidden_field :email 
       = f.hidden_field :writer_id 

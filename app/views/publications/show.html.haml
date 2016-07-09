@@ -14,6 +14,16 @@
     .inline.field
       %i.spy.icon
       = @publication.pen_name
+    %br
+    .inline.field
+      = link_to like_publication_path(@publication), method: :put do
+        %i.green.heart.icon
+        Likes
+        \#{@publication.get_upvotes.size}
+      = link_to dislike_publication_path(@publication), method: :put do
+        %i.red.lemon.icon
+        Dislikes
+        \#{@publication.get_downvotes.size}
     .inline.field
     %br
     -if writer_signed_in? && current_writer.id == @publication.writer_id ||  writer_signed_in? && current_writer.email == @publication.email || superuser_signed_in?

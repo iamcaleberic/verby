@@ -78,6 +78,28 @@ class PublicationsController < ApplicationController
     end
   end
 
+   # acts_as_votable functions
+  def upvote
+    if !signed_in?  
+      redirect_to new_writer_session_path
+    else 
+      @publication = Publication.friendly.find(params[:id])
+      @publication.upvote_by current_writer
+      redirect_to root_path
+    end
+  end  
+
+  def downvote
+    if !signed_in?  
+      redirect_to new_writer_session_path
+    else 
+      @publication = Publication.friendly.find(params[:id])
+      @publication.downvote_by current_writer
+      redirect_to root_path
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
