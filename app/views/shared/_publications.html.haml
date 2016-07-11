@@ -23,10 +23,11 @@
 					%i.green.heart.icon
 					Likes
 					\#{publication.get_upvotes.size}
-				= link_to dislike_publication_path(publication), method: :put do
-					%i.red.lemon.icon
-					Dislikes
-					\#{publication.get_downvotes.size}
+				.right.floated
+					= link_to dislike_publication_path(publication), method: :put do
+						%i.red.lemon.icon
+						Dislikes
+						\#{publication.get_downvotes.size}
 
 			.extra.content  
 				.inline.field
