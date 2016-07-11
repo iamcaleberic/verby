@@ -1,0 +1,11 @@
+.ui.basic.form.segment
+	.comment-form
+		.ui.blue.header Leave a comment
+		= form_for comment, :remote => true do |f|
+			.field{:style => "width:50%;"}
+				= f.text_field :body, :input_html => { :rows => "2" }, :label => false
+				= f.hidden_field :commentable_id, :as => :hidden, :value => comment.commentable_id
+				= f.hidden_field :commentable_type, :as => :hidden, :value => comment.commentable_type
+			.actions
+				%br
+				= f.submit :Comment, :class => "ui small black button ", :disable_with => "Submitting…"

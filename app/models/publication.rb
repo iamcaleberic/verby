@@ -14,7 +14,8 @@ class Publication < ActiveRecord::Base
 	serialize :tags
 	
 	friendly_id :citation, :use => :history
-
+	acts_as_commentable
+	has_many :comments
   def citation
     "#{title} by #{pen_name}"
   end

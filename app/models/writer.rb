@@ -10,7 +10,7 @@ class Writer < ActiveRecord::Base
   validates :penname, uniqueness: true
   has_many :publications
   
-
+  has_many :comments
 
  #  send email after sign up
 # after_create :send_welcome_email

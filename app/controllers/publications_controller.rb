@@ -22,6 +22,8 @@ class PublicationsController < ApplicationController
   # GET /publications/1
   # GET /publications/1.json
   def show
+    @comments = @publication.comment_threads.order('created_at desc')
+    @new_comment = Comment.build_from(@publication, current_writer.id, "")
   end
 
   # GET /publications/new
@@ -85,7 +87,7 @@ class PublicationsController < ApplicationController
     else 
       @publication = Publication.friendly.find(params[:id])
       @publication.upvote_by current_writer
-      redirect_to root_path
+      redirect_to :back
     end
   end  
 
@@ -95,7 +97,7 @@ class PublicationsController < ApplicationController
     else 
       @publication = Publication.friendly.find(params[:id])
       @publication.downvote_by current_writer
-      redirect_to root_path
+      redirect_to :back
     end
   end
 

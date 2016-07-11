@@ -12,6 +12,12 @@
 				%i.spy.icon
 				= publication.pen_name 
 				.right.floated
+					%i.comment.icon
+					- if !publication.comment_threads.blank?
+						#{publication.comment_threads.count}
+					- else 
+						0
+
 			.extra.content
 				= link_to like_publication_path(publication), method: :put do
 					%i.green.heart.icon
