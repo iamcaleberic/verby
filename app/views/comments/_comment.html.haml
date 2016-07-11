@@ -1,0 +1,26 @@
+.ui.basic.segment
+	%div.comment.scene{ :id => "comment-#{comment.id}" }
+		%a.avatar
+			.content
+				%i.user.icon
+				%a.author #{comment.writer.name} 
+				.metadata
+					%span.date #{time_ago_in_words(comment.updated_at)} ago
+				.description
+					#{comment.body}
+				.actions
+					%a.reply 
+						%i.reply.icon
+						Reply
+					= link_to like_comment_path(comment), method: :put do
+						%i.green.heart.outline.icon
+						Likes
+						\#{comment.get_upvotes.size}
+
+					= link_to dislike_comment_path(comment), method: :put do
+						%i.red.lemon.icon
+						Dislikes
+						\#{comment.get_downvotes.size}
+
+
+		= link_to "×", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close'

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root 'home#index'  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :superusers, :skip => [:registrations] 
@@ -15,10 +15,14 @@ Rails.application.routes.draw do
       put "dislike", to: "publications#downvote"
     end
   end
+  resources :comments, :only => [:create, :destroy] do
+    member do
+      put "like", to: "comments#upvote"
+      put "dislike", to: "comments#downvote"
+    end
+  end
   get 'static/guide'
   get 'static/about'
   get 'static/terms'
-  get 'home/index'
-  
 
 end

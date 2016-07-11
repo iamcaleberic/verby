@@ -21,6 +21,12 @@
 					%i.red.lemon.icon
 					Dislikes
 					\#{publication.get_downvotes.size}
+			.extra.content
+				%i.comment.icon
+				- if !publication.comment_threads.blank?
+					#{publication.comment_threads.count}
+				- else 
+					0
 
 			.extra.content  
 				.inline.field
