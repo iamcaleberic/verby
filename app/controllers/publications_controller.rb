@@ -23,7 +23,9 @@ class PublicationsController < ApplicationController
   # GET /publications/1.json
   def show
     @comments = @publication.comment_threads.order('created_at desc')
-    @new_comment = Comment.build_from(@publication, current_writer.id, "")
+    unless !signed_in?
+      @new_comment = Comment.build_from(@publication, current_writer.id, "")
+    end
   end
 
   # GET /publications/new
