@@ -30,10 +30,10 @@
       = link_to 'Edit', edit_publication_path(@publication) ,:class =>"ui small button"
     \|
     = link_to 'Back', publications_path , :class => "ui small blue button"
-    - if signed_in? 
+    - if writer_signed_in? 
       %div{style: 'margin-top: 1em;'}
         = render :partial => 'comments/form', :locals => { :comment => Comment.build_from(@publication, current_writer.id, "") }
-    - else
+    - else 
       .ui.green.message 
         = link_to "Please Sign in to comment" ,new_writer_session_path 
     .comments
