@@ -23,7 +23,7 @@ class PublicationsController < ApplicationController
   # GET /publications/1.json
   def show
     @comments = @publication.comment_threads.order('created_at desc')
-    unless !signed_in?
+    unless !writer_signed_in?
       @new_comment = Comment.build_from(@publication, current_writer.id, "")
     end
   end
@@ -84,7 +84,7 @@ class PublicationsController < ApplicationController
 
    # acts_as_votable functions
   def upvote
-    if !signed_in?  
+    if !writer_signed_in?  
       redirect_to new_writer_session_path
     else 
       @publication = Publication.friendly.find(params[:id])
@@ -94,7 +94,7 @@ class PublicationsController < ApplicationController
   end  
 
   def downvote
-    if !signed_in?  
+    if !writer_signed_in?  
       redirect_to new_writer_session_path
     else 
       @publication = Publication.friendly.find(params[:id])
@@ -112,7 +112,7 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :pen_name, :body, :email, :comments, :likes, :dislikes ,:writer_id, :genre, :tags)
+      params.require(:publication).permit(:title, :pen_name, :body, :email, :comments, :likes, :dislikes ,:writer_id, :genre, :tags, :slug ,:likees_count, :superuser_id)
     end
 
     # Find publications using old id
