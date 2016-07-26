@@ -1,31 +1,32 @@
-.ui.top.small.inverted.menu
-  %a.toc.item
-    %i.sidebar.icon 
-      /Sidebar Menu
-      =render 'home/sidebar'
-  %h2  
-    = link_to "Verby" ,root_path , :class => 'item'
-  
-  
-  -if writer_signed_in?
-    .right.menu
-      .item
-        = link_to edit_writer_registration_path  do
-          %i.edit.icon
-          = current_writer.penname
-      .item
-        = link_to "Log Out" ,destroy_writer_session_path, :method => :delete ,:class => "ui item"
-  -elsif superuser_signed_in?
-    .right.menu
-      .item
-        = link_to "Log Out" ,destroy_superuser_session_path, :method => :delete, :class => 'ui item'
+= render 'home/sidebar'
+ 
+.ui.small.inverted.menu{:style => 'border-radius:0px !important;'}
+  .ui.container
+    %a.blue.toc.item
+      %i.sidebar.icon 
+        /Sidebar Menu
+    .header.item    
+      .logo
+        = image_tag('orange-banner.png' , :height => '50')  
+    
+    -if writer_signed_in?
+      .right.menu
+        .item
+          = link_to edit_writer_registration_path  do
+            %i.edit.icon
+            = current_writer.penname
+        .item
+          = link_to "Log Out" ,destroy_writer_session_path, :method => :delete ,:class => "ui item"
+    -elsif superuser_signed_in?
+      .right.menu
+        .item
+          = link_to "Log Out" ,destroy_superuser_session_path, :method => :delete, :class => 'ui inverted red button'
 
-  -else
-    .right.menu
-      .item
-         
-        = link_to new_writer_registration_path, :class => 'ui item' do
-          %i.spy.icon
-          Sign Up
-
+    -else
+      .right.menu
+        .item
+           
+          = link_to new_writer_registration_path, :class => 'ui small inverted green button' do
+            %i.spy.icon
+            Sign Up
 

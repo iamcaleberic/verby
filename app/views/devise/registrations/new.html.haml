@@ -1,6 +1,8 @@
 = render 'layouts/header'
 %center
   .ui.form
+    %p.error= notice
+    %p.error= alert
     .column{:style => "max-width:450px;"} 
     %h2 Sign up
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
@@ -42,7 +44,7 @@
       .inline.field
         .actions
 
-        = f.submit "Sign up" ,:class => "ui small green button"
+        = f.submit "Sign up" ,:class => "ui basic small blue button"
         = render "devise/shared/links"
 %br
 = render 'layouts/footer'

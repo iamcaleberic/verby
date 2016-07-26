@@ -1,6 +1,8 @@
 /Sidebar Menu
 .ui.vertical.inverted.sidebar.menu
-  = link_to "Verby" ,root_path , :class => 'active item'
+  = link_to root_path , :class => 'active item' do
+    = image_tag('orange-banner.png', :height => '50' )  
+
   -unless signed_in? 
     = link_to "Publish" ,new_writer_session_path , :class => 'item'
     = link_to "Publications" ,publications_path , :class => 'item'

@@ -1,45 +1,26 @@
-/Sidebar Menu
 = render 'home/sidebar'
-/ Page Contents
-.pusher
-  .ui.inverted.vertical.masthead.center.aligned.segment
-    .ui.container
-      .ui.large.secondary.inverted.pointing.menu
-        %a.toc.item
-          %i.sidebar.icon
-        %h3
-          = link_to "Verby" ,root_path , :class => 'active item'
-        -unless signed_in? 
-          = link_to "Publish" ,new_writer_session_path , :class => 'item'  
-        -else 
-          =link_to "Publish" ,new_publication_path , :class => 'item' 
-        = link_to "Publications" ,publications_path , :class => 'item'
-        = link_to "About" ,static_about_path , :class => 'item'
-        .right.menu
-          -if signed_in?
-            .item
-              %i.sign.out.icon
-              = link_to "Log Out" ,destroy_writer_session_path, :method => :delete, :class => 'item'
-          -else
-            .item
-              
-              = link_to  new_writer_registration_path, :class => 'item' do
-                %i.spy.icon
-                Sign Up
-            
+/ Main home
+.ui.basic.segment#main
+	.ui.basic.menu{:style => 'background-color: rgba(0,0,0,0.0);border:none !important; border:0px !important;'}
+		%a.toc.item
+			%i.sidebar.icon
+		.header.item    
+			.logo
+				= image_tag('orange-banner.png' , :height => '50')
 
-  
-    .ui.text.container
-      %h1.ui.inverted.header
-        Verby
-      %small Everybody loves a good story
-      %h2 Connecting creatives and consumers of creative content from the comfort and convenience of their devices. 
-      %p Accessible anywhere anytime 24 hours a day Hassle free
-      .ui.huge.primary.button
-        = link_to publications_path, {:style =>"color:white !important; :hover color:none !important}"} do 
-          %i.right.arrow.icon
-          Start Reading
+	%center
+		= image_tag('logo.png', :height => '15%', :width => '15%')
+		%h2{:style=>'font-weight:400;'} EVERYBODY LOVES A GOOD STORY
+		.ui.header Connecting creatives and consumers of creative content from the convenience of their devices
+		.ui.inverted.small.green.button Sign Up
+		%br
+		%br
+		
+		.ui.inverted.blue.button
+			Start Reading
 
-
-  / footer
-  = render 'layouts/footer'
+	.ui.basic.segment
+		%center
+			%br
+			.ui.blue.circular.instagram.icon.button
+				%i.instagram.icon
