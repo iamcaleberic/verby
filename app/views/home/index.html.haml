@@ -8,6 +8,10 @@
 			.logo
 				= link_to root_path do 
 					= image_tag('orange-banner.png' , :height => '50')
+		.right.menu
+			.item
+				= link_to new_writer_session_path do
+					.ui.inverted.green.button Sign in
 
 	%center
 		= image_tag('logo.png', :height => '15%', :width => '15%')
