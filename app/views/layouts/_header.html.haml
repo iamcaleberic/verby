@@ -7,7 +7,8 @@
         /Sidebar Menu
     .header.item    
       .logo
-        = image_tag('orange-banner.png' , :height => '50')  
+        = link_to root_path do
+          = image_tag('orange-banner.png' , :height => '50')  
     
     -if writer_signed_in?
       .right.menu
