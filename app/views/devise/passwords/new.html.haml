@@ -1,13 +1,17 @@
 = render 'layouts/header'
-.ui.form
+.ui.container
 	%center
-		%h2 Forgot your password?
-		= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-			= devise_error_messages!
-			.four.wide.field
-				= f.label :email
-				%br/
-				= f.email_field :email, autofocus: true , required: true
-			.actions
-				= f.submit "Send me reset password instructions" , :class => "ui small button"
-			= render "devise/shared/links"
+		.column{:style => "max-width:450px;"}
+			.ui.form
+				%h2 Forgot your password?
+				= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+					= devise_error_messages!
+					.field
+						= f.label :email
+						%br/
+						= f.email_field :email, autofocus: true , required: true
+					.actions
+						= f.submit "Send me reset password instructions" , :class => "ui inverted small green button"
+					%br
+					.inline.fields
+						= render "devise/shared/links"
