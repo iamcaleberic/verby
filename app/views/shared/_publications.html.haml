@@ -34,5 +34,5 @@
 				.inline.field
 					-if writer_signed_in? && current_writer.id == publication.writer_id || writer_signed_in? && current_writer.email == publication.email || superuser_signed_in?
 					   
-						= link_to 'Edit', edit_publication_path(publication) ,:class => "ui small button"
-						= link_to 'Delete', publication, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "ui small red button"
+						= link_to 'Edit', edit_publication_path(publication) ,:class => "ui inverted small green button"
+						= link_to 'Delete', publication, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "ui small inverted red button"

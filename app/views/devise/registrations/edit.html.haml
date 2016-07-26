@@ -40,8 +40,8 @@
           %br/
           = f.password_field :current_password, autocomplete: "off" , required: true
         .actions
-          = f.submit "Update" ,:class => "ui basic fluid green button"
+          = f.submit "Update" ,:class => "ui inverted fluid green button"
       %h3 Cancel my account
       %p
-        Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,:class =>'ui basic fluid red button'}
+        Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,:class =>'ui inverted fluid red button'}
       = link_to "Back", :back

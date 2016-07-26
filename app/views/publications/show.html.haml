@@ -27,9 +27,9 @@
     .inline.field
     %br
     -if writer_signed_in? && current_writer.id == @publication.writer_id ||  writer_signed_in? && current_writer.email == @publication.email || superuser_signed_in?
-      = link_to 'Edit', edit_publication_path(@publication) ,:class =>"ui small button"
+      = link_to 'Edit', edit_publication_path(@publication) ,:class =>"ui inverted green button"
     \|
-    = link_to 'Back', publications_path , :class => "ui small blue button"
+    = link_to 'Back', publications_path , :class => "ui inverted small blue button"
     - if writer_signed_in? 
       %div{style: 'margin-top: 1em;'}
         = render :partial => 'comments/form', :locals => { :comment => Comment.build_from(@publication, current_writer.id, "") }

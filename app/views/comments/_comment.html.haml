@@ -9,9 +9,6 @@
 				.description
 					#{comment.body}
 				.actions
-					%a.reply 
-						%i.reply.icon
-						Reply
 					= link_to like_comment_path(comment), method: :put do
 						%i.green.heart.outline.icon
 						Likes

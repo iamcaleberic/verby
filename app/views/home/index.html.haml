@@ -6,21 +6,24 @@
 			%i.sidebar.icon
 		.header.item    
 			.logo
-				= image_tag('orange-banner.png' , :height => '50')
+				= link_to root_path do 
+					= image_tag('orange-banner.png' , :height => '50')
 
 	%center
 		= image_tag('logo.png', :height => '15%', :width => '15%')
 		%h2{:style=>'font-weight:400;'} EVERYBODY LOVES A GOOD STORY
 		.ui.header Connecting creatives and consumers of creative content from the convenience of their devices
-		.ui.inverted.small.green.button Sign Up
+		= link_to new_writer_registration_path do
+			.ui.inverted.small.green.button Sign Up
 		%br
 		%br
-		
-		.ui.inverted.blue.button
-			Start Reading
+		= link_to publications_path do
+			.ui.inverted.blue.button
+				Start Reading
 
 	.ui.basic.segment
 		%center
 			%br
-			.ui.blue.circular.instagram.icon.button
-				%i.instagram.icon
+			=link_to "http://instagram.com/verbyink", :target => "_blank" do
+				.ui.blue.circular.instagram.icon.button
+					%i.instagram.icon
