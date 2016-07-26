@@ -1,24 +1,25 @@
 = render 'layouts/header'
-%center
-  .ui.form
-    %p.error= notice
-    %p.error= alert
-    .column{:style => "max-width:450px;"} 
-      %h2 Log in
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .field
-          = f.label :email
-          %br/
-          = f.email_field :email, autofocus: true , required: true
-        .field
-          = f.label :password
-          %br/
-          = f.password_field :password, autocomplete: "off" , required: true 
-        - if devise_mapping.rememberable?
-          .inline.field
-            = f.check_box :remember_me
-            = f.label :remember_me
-        .actions
-          = f.submit "Log in" ,:class => "ui basic small green button"
-    
-          = render 'devise/shared/links'
+.ui.container
+  %center
+    .ui.form
+      %p.error= notice
+      %p.error= alert
+      .column{:style => "max-width:450px;"} 
+        %h2 Log in
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true , required: true
+          .field
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "off" , required: true 
+          - if devise_mapping.rememberable?
+            .inline.field
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .actions
+            = f.submit "Log in" ,:class => "ui inverted small green button"
+      
+            = render 'devise/shared/links'
