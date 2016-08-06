@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   devise_for :writers
   resources :publications do
     member do
+      get :publications
       put "like", to: "publications#upvote"
       put "dislike", to: "publications#downvote"
     end
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
       put "dislike", to: "comments#downvote"
     end
   end
+
   get 'static/guide'
   get 'static/about'
   get 'static/terms'

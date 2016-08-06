@@ -12,8 +12,9 @@
         = @publication.genre
     %br
     .inline.field
-      %i.spy.icon
-      = @publication.pen_name
+      = link_to publications_publication_path(@publication.writer) do
+        %i.spy.icon
+        = @publication.pen_name
     %br
     .inline.field
       = link_to like_publication_path(@publication), method: :put do
