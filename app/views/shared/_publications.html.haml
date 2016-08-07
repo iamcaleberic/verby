@@ -10,9 +10,9 @@
 				.right.floated 
 					= publication.tags
 			.extra.content
-				= link_to publications_publication_path(publication.writer) do
-					%i.spy.icon
-					= publication.pen_name
+				= link_to publications_publication_path(publication.writer) , :id => 'pen' do
+					%i.spy.icon#pen
+					= publication.pen_name 
 				.right.floated
 					%i.blue.comment.icon
 					- if !publication.comment_threads.blank?

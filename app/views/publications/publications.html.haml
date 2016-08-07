@@ -12,7 +12,7 @@
 				.right.floated 
 					= publication.tags
 			.extra.content
-				= link_to  publications_publication_path(publication.writer) do
+				= link_to  publications_publication_path(publication.writer), :id => 'pen' do
 					%i.spy.icon
 					= publication.pen_name
 				.right.floated
