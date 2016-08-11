@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710101129) do
+ActiveRecord::Schema.define(version: 20160811145543) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(version: 20160710101129) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "publications", force: :cascade do |t|
-    t.string   "title"
+    t.text     "title",        limit: 191
     t.string   "pen_name"
-    t.string   "body",         limit: 10000
+    t.text     "body",         limit: 50000
     t.string   "email"
     t.string   "comments"
     t.integer  "likes"
