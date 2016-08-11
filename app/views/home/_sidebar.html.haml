@@ -7,6 +7,8 @@
     = link_to "Publish" ,new_writer_session_path , :class => 'item'
     = link_to "Publications" ,publications_path , :class => 'item'
     = link_to "About" ,static_about_path , :class => 'item'
+    = link_to "Terms" , static_terms_path , :class => 'item'
+
 
   -else 
     =link_to "Publish" ,new_publication_path , :class => 'item' 
@@ -14,3 +16,4 @@
   -if signed_in?
   -else
     = link_to "Sign up" , new_writer_registration_path, :class => 'item'
+    = link_to "Sign in" , new_writer_session_path , :class => 'item'
