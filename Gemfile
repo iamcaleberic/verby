@@ -34,6 +34,7 @@ source 'https://rubygems.org'
 	gem 'will_paginate', '~> 3.0.5'
 	gem 'acts_as_votable'
 	gem 'quiet_assets'
+	gem 'redis' 
 	gem 'acts_as_commentable_with_threading'
 group :development, :test do
 	gem 'minitest', '~> 5.9'
