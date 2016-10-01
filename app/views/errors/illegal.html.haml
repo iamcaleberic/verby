@@ -1,1 +1,14 @@
-Illegal
+= render  'layouts/header'
+
+.ui.basic.segment
+	
+	.ui.negative.message
+		%center 
+			%h4
+				Action Requires Elevated Priviledges
+
+			%i.massive.bomb.icon
+	%br
+	%center
+		= link_to root_path do
+			.ui.tiny.basic.green.button Take me Home
