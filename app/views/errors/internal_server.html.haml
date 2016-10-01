@@ -1,2 +1,14 @@
-%h1 Errors#internal_server
-%p Find me in app/views/errors/internal_server.html.haml
+= render  'layouts/header'
+
+.ui.basic.segment
+	
+	.ui.negative.message
+		%center 
+			%h4
+				Our Server Encountered an error 
+
+			%i.massive.warning.circle.icon
+	%br
+	%center
+		= link_to root_path do
+			.ui.tiny.basic.green.button Take me Home
