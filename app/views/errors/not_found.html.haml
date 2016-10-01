@@ -1,2 +1,14 @@
-%h1 Errors#not_found
-%p Find me in app/views/errors/not_found.html.haml
+= render  'layouts/header'
+
+.ui.basic.segment
+	
+	.ui.negative.message
+		%center 
+			%h4
+				Seems you landed somewhere unexpected
+			.ui.red.header 404
+			%i.massive.frown.icon
+	%br
+	%center
+		= link_to root_path do
+			.ui.tiny.basic.green.button Take me Home
