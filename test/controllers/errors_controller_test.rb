@@ -12,17 +12,23 @@ class ErrorsControllerTest < ActionController::TestCase
 
   test "should get not_found" do
     get :not_found
-    assert_response :success
+    assert_response 404
   end
 
   test "should get internal_server" do
     get :internal_server
-    assert_response :success
+    assert_response 500
   end
 
   test "should get unauthorized" do
     get :unauthorized
-    assert_response :success
+    assert_response 422
+  end
+
+  test "should get illegal" do
+    get :illegal
+    assert_response 403
+
   end
 
 end
