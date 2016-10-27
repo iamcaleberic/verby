@@ -1,6 +1,15 @@
 require 'test_helper'
-Devise::Test::ControllerHelpers
+
 class ErrorsControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
+  setup do
+    sign_in writers(:one)
+    sign_in superusers(:one)
+    @publication = publications(:one)
+  end
+
+
   test "should get not_found" do
     get :not_found
     assert_response :success
