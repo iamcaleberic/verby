@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-	gem 'rails', '4.2.6'
+	gem 'rails', '~> 5.0.0'
 	gem 'mysql2'
 	gem 'sqlite3'
 	gem 'sass-rails', '~> 5.0'
 	gem 'uglifier', '>= 1.3.0'
-	gem 'coffee-rails', '~> 4.1.0'
+	gem 'coffee-rails', '>= 4.1.0'
 	gem 'therubyracer', platforms: :ruby
 	gem 'jquery-rails'
 	gem 'turbolinks'
@@ -19,9 +19,9 @@ source 'https://rubygems.org'
 	gem "erb2haml", :group => :development
 	gem 'font-awesome-sass'
 	gem 'ckeditor'
-	gem 'devise'
+	gem 'devise', github: 'plataformatec/devise'
 	gem 'rails_12factor'
-	gem 'rails_admin'
+	gem 'rails_admin', '~> 1.0'
 	gem 'social-share-button'
 	gem 'figaro'
 	gem 'cancancan'
@@ -49,4 +49,3 @@ group :development do
 	gem 'web-console', '~> 2.0'
 	gem 'spring'
 end
-
