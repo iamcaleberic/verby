@@ -1,2 +1,14 @@
-%h1 Errors#unauthorized
-%p Find me in app/views/errors/unauthorized.html.haml
+= render  'layouts/header'
+
+.ui.basic.segment
+	
+	.ui.negative.message
+		%center 
+			%h4
+				We cant complete the action you requested
+
+			%i.massive.bomb.icon
+	%br
+	%center
+		= link_to root_path do
+			.ui.tiny.basic.green.button Take me Home

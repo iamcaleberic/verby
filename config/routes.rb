@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'errors/not_found'
-
-  get 'errors/internal_server'
-
-  get 'errors/unauthorized'
+  get "/404", :to => "errors#not_found"
+  get "/422", :to => "errors#unauthorized"
+  get "/500", :to => "errors#internal_server"
+  get '/403',  :to => "errors#illegal"
 
   root 'home#index'  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
