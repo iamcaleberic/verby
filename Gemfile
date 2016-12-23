@@ -34,7 +34,7 @@ source 'https://rubygems.org'
 	gem 'will_paginate', '~> 3.0.5'
 	gem 'acts_as_votable'
 	gem 'quiet_assets'
-	# gem 'redis-rails' 
+	# gem 'redis-rails'
 	gem 'acts_as_commentable_with_threading'
 group :development, :test do
 	gem 'minitest', '~> 5.9'
@@ -50,4 +50,3 @@ group :development do
 	gem 'web-console', '~> 2.0'
 	gem 'spring'
 end
-
