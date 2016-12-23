@@ -19,5 +19,5 @@
 # Ignore application configuration
 /config/application.yml
 /config/secret.yml
-
-verby
+./verby
+.byebug_history
