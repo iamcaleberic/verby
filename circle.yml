@@ -3,5 +3,8 @@ machine:
   timezone:
     Europe/London # Set the timezone
 
+  #ruby version
   ruby:
-    version: rbx-2.2.6
+    version:
+      2.3.1
+
