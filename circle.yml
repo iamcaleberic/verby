@@ -1,0 +1,9 @@
+machine:
+
+  timezone:
+    Europe/London # Set the timezone
+
+  #ruby version
+  ruby:
+    version:
+      2.3.0
