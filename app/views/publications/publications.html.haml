@@ -1,15 +1,6 @@
 = render 'layouts/header'
 
-:javascript
-	$(function() {
-	  return $('a.load-more-publications').on('inview', function(e, visible) {
-	    if (!visible) {
-	      return;
-	    }
-	    return $.getScript($(this).attr('href'));
-	  });
-	});
-	
+
 / Infity scroll publications
 .ui.special.cards{:style => "padding-left:3%!important;"}
 	- @publications.each do |publication|
