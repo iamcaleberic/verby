@@ -3,5 +3,4 @@
 .ui.basic.segment
 	.publications
 		= render :partial => 'shared/publications', :locals => { :publications => @publications }
-	= link_to 'Load More publications', publications_path(:page => @publications.next_page), :class => 'load-more-publications', :remote => true if @publications.next_page
-
+	= link_to 'Load More publications', publications_path(:page => @publications.next_page), :class => 'load-more-publications ui fluid black message', :remote => true if @publications.next_page
