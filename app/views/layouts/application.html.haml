@@ -16,7 +16,7 @@
       n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
       t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
       document,'script','https://connect.facebook.net/en_US/fbevents.js');
-      
+
       fbq('init', '1320874191271033');
       fbq('track', "PageView");
       fbq('track', 'CompleteRegistration');
@@ -26,9 +26,9 @@
     / End Facebook Pixel Code
 
   %body
-   
+
     = yield
-    
+
   :javascript
     $(document)
       .ready(function() {
@@ -36,6 +36,16 @@
         $('.ui.sidebar')
           .sidebar('attach events', '.toc.item')
         ;
+        // infinity scroll
+        $(function() {
+        	  return $('a.load-more-publications').on('inview', function(e, visible) {
+        	    if (!visible) {
+        	      return;
+        	    }
+        	    return $.getScript($(this).attr('href'));
+        	  });
+        	});
+
 
       })
     ;
@@ -47,6 +57,3 @@
 
     ga('create', 'UA-76604026-1', 'auto');
     ga('send', 'pageview');
-      
-  
-
