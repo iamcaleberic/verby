@@ -1,21 +1,22 @@
 class Publication < ActiveRecord::Base
-  	include FriendlyId
-  	acts_as_votable
-  	self.per_page = 8
-  	validates :title, presence: true
-	validates :body, presence: true
+  include FriendlyId
+  acts_as_votable
+  self.per_page = 8
+  validates :title, presence: true
+  validates :body, presence: true
 	validates :pen_name, presence: true
 	belongs_to :writer
-	belongs_to :superuser
+	belongs_to :superuser, optional: true
 	serialize :title
 	serialize :body
 	serialize :pen_name
 	serialize :genre
 	serialize :tags
-	
+
 	friendly_id :citation, :use => :history
 	acts_as_commentable
 	has_many :comments
+
   def citation
     "#{title} by #{pen_name}"
   end
