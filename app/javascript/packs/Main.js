@@ -28,11 +28,11 @@ export default class Main extends Component {
               <Icon name='folder' link />
               Publish
             </Menu.Item></a>
-            <a href='/about'><Menu.Item name='icon'>
+            <a href='/static/about'><Menu.Item name='icon'>
               <Icon name='info' link />
               About
             </Menu.Item></a>
-            <a href='/terms'><Menu.Item name='terms'>
+            <a href='/static/terms'><Menu.Item name='terms'>
               <Icon name='book' link />
               Terms
             </Menu.Item></a>
