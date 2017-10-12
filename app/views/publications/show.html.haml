@@ -12,7 +12,7 @@
         = @publication.genre
     %br
     .inline.field
-      = link_to publications_publication_path(@publication.writer), :id => 'pen' do
+      = link_to publications_path(@publication.writer), :id => 'pen' do
         %i.spy.icon
         = @publication.pen_name
     %br
@@ -31,11 +31,11 @@
       = link_to 'Edit', edit_publication_path(@publication) ,:class =>"ui inverted green button"
     \|
     = link_to 'Back', publications_path , :class => "ui inverted small blue button"
-    - if writer_signed_in? 
+    - if writer_signed_in?
       %div{style: 'margin-top: 1em;'}
         = render :partial => 'comments/form', :locals => { :comment => Comment.build_from(@publication, current_writer.id, "") }
-    - else 
-      .ui.green.message 
-        = link_to "Please Sign in to comment" ,new_writer_session_path 
+    - else
+      .ui.green.message
+        = link_to "Please Sign in to comment" ,new_writer_session_path
     .comments
       = render :partial => 'comments/comment', :collection => @publication.comment_threads.order('created_at desc'), :as => :comment
