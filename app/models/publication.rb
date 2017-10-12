@@ -1,4 +1,4 @@
-class Publication < ActiveRecord::Base
+class Publication < ApplicationRecord
   include FriendlyId
   acts_as_votable
   self.per_page = 8
