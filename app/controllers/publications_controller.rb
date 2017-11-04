@@ -82,7 +82,7 @@ class PublicationsController < ApplicationController
     end
   end
 
-  def publications
+  def archives
     @writer = Writer.find(params[:id])
     @publications = @writer.publications
   end

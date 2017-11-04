@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
   def index
-    render layout: 'app'
   	if signed_in?
   		redirect_to publications_path
+    else
+      render layout: 'app'
   	end
   end
 
@@ -11,7 +12,7 @@ class HomeController < ApplicationController
   end
 
   def mine
-  	@publications =Publication.all
+  	@publications = Publication.all
   end
 
 end
