@@ -17,7 +17,7 @@ require 'capistrano/deploy'
 #
 
 set :rvm_type, :sudo
-set :rvm_ruby, '2.3.0'
+set :rvm_ruby, '2.4.2'
 require 'capistrano/rvm'
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
