@@ -14,9 +14,9 @@ export default class Main extends Component {
   render() {
     const { visible, activeItem } = this.state
     return (
-      <div>
+      // <div>
         <Sidebar.Pushable as={Segment}>
-          <Sidebar as={Menu} animation='push' width='thin' visible={visible} icon='labeled' vertical inverted>
+          <Sidebar as={Menu} animation='slide along' width='thin' visible={visible} icon='labeled' vertical inverted>
             <Menu.Item >
               <Image avatar={true} size='tiny' src={orange} />
             </Menu.Item>
@@ -44,12 +44,9 @@ export default class Main extends Component {
                 <Menu.Item active={activeItem === 'home'} onClick={this.handleItemClick} >
                   <Image avatar={true} size='tiny' src={orange} />
                 </Menu.Item>
-                <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
-                <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
                 <Menu.Menu position='right'>
                   <Menu.Item>
                   </Menu.Item>
-                  <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
                 </Menu.Menu>
               </Menu>
 
@@ -57,7 +54,7 @@ export default class Main extends Component {
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
-      </div>
+      // </div>
     )
   }
 }
