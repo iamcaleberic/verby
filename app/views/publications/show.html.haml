@@ -12,7 +12,7 @@
         = @publication.genre
     %br
     .inline.field
-      = link_to publications_path(@publication.writer), :id => 'pen' do
+      = link_to "/archives/#{@publication.writer_id}", :id => 'pen' do
         %i.spy.icon
         = @publication.pen_name
     %br
