@@ -26,7 +26,11 @@ require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
+require 'capistrano/yarn'
 # require 'capistrano/passenger'
-
+set :yarn_target_path, -> { release_path.join('subdir') } # default not set
+set :yarn_flags, '--production --silent --no-progress'    # default
+set :yarn_roles, :all                                     # default
+set :yarn_env_variables, {}                               # default
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
