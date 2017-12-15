@@ -51,7 +51,6 @@ gem 'friendly_id'
 gem 'jquery-turbolinks'
 gem 'capistrano'
 gem 'capistrano-rvm'
-gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'will_paginate'
 gem 'acts_as_votable'
@@ -63,6 +62,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
+  gem 'capistrano-rails'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 	gem 'minitest'
@@ -70,6 +70,7 @@ group :development, :test do
 	gem 'mini_backtrace'
 	gem 'guard'
 	gem 'guard-minitest'
+  gem 'rspec-rails', '~> 3.6'
   #
 end
 
