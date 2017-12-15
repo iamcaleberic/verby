@@ -1,12 +1,40 @@
+// #main{
+//     background-image:asset_url('books.jpg');
+//     background-position:center;
+//     background-repeat:no-repeat;
+//     height:100%;
+//   }
+// body.pushable {
+//  .pusher {
+//    height: 100%;
+//  }
+// }
+#root {
+  // height: 100% !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+.ui.segment.pushable{
+  background-image:asset_url('books.jpg');
+  background-position:center;
+  background-repeat:no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  height:100% !important;
+}
 
+.ig {
+  margin: 50px !important;
+}
 
-  #main{
-    background-image:asset_url('books.jpg');
-    background-position:center;
-    background-repeat:no-repeat;
-    height:700px;
-
-  }
-    
-
-  
+.rw {
+  margin-top: 50px !important;
+}

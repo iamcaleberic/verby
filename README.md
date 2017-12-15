@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/iamcaleberic/verby.svg?branch=master)](https://travis-ci.org/iamcaleberic/verby)
-
+[![CircleCI](https://circleci.com/gh/iamcaleberic/verby.svg?style=svg)](https://circleci.com/gh/iamcaleberic/verby)
 # Verby
 Blogger and writers content  ```https://verby.io```
-  > * Make sure you have ``` Ruby 2.3.1 ``` , ```Rails 4.2.6 ``` , ```Bundler``` and ```Redis``` Installed.
+  > * Make sure you have ``` Ruby 2.4.1 ``` , ```Rails 5.1.1 ``` , ```Bundler``` and ```Redis``` Installed.
 
 #### Running
 

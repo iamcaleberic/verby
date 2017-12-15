@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'home#index'
 
@@ -16,11 +17,12 @@ Rails.application.routes.draw do
 
   resources :publications do
     member do
-      get :publications
       put "like", to: "publications#upvote"
       put "dislike", to: "publications#downvote"
     end
   end
+
+  get 'archives/:id' => "publications#archives", :as => 'archives_path'
 
   resources :comments, :only => [:create, :destroy] do
     member do
