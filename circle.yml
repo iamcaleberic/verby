@@ -8,3 +8,7 @@ machine:
     version:
       2.3.3
 
+test:
+  override:
+    - bundle exec rspec spec
+    
