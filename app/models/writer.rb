@@ -1,4 +1,4 @@
-class Writer < ActiveRecord::Base
+class Writer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
@@ -9,7 +9,7 @@ class Writer < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates :penname, uniqueness: true
   has_many :publications
-  
+
   has_many :comments
 
  #  send email after sign up

@@ -1,13 +1,13 @@
 class PublicationsController < ApplicationController
   before_action :authenticate_writer!, only: [:create ,:edit ,:update, :destroy]
-  before_filter :find_publication, only: [:show]
+  before_action :find_publication, only: [:show]
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
   skip_authorize_resource :only => :index
 
   # GET /publications
   # GET /publications.json
   def index
-    
+
     @publications = Publication.paginate(:page => params[:page]).order('created_at DESC')
 
     respond_to do |format|
@@ -58,7 +58,7 @@ class PublicationsController < ApplicationController
   # PATCH/PUT /publications/1
   # PATCH/PUT /publications/1.json
   def update
-    authorize! :update, @publication 
+    authorize! :update, @publication
     respond_to do |format|
       if @publication.update(publication_params)
         format.html { redirect_to @publication, notice: 'Publication was successfully updated.' }
@@ -74,7 +74,7 @@ class PublicationsController < ApplicationController
   # DELETE /publications/1
   # DELETE /publications/1.json
   def destroy
-    authorize! :destroy, @publication 
+    authorize! :destroy, @publication
     @publication.destroy
     respond_to do |format|
       format.html { redirect_to publications_url, notice: 'Publication was successfully destroyed.' }
@@ -82,29 +82,29 @@ class PublicationsController < ApplicationController
     end
   end
 
-  def publications
+  def archives
     @writer = Writer.find(params[:id])
     @publications = @writer.publications
   end
 
    # acts_as_votable functions
   def upvote
-    if !writer_signed_in?  
+    if !writer_signed_in?
       redirect_to new_writer_session_path
-    else 
+    else
       @publication = Publication.friendly.find(params[:id])
       @publication.upvote_by current_writer
-      redirect_to :back
+      redirect_back fallback_location: root_path
     end
-  end  
+  end
 
   def downvote
-    if !writer_signed_in?  
+    if !writer_signed_in?
       redirect_to new_writer_session_path
-    else 
+    else
       @publication = Publication.friendly.find(params[:id])
       @publication.downvote_by current_writer
-      redirect_to :back
+      redirect_back fallback_location: root_path
     end
   end
 
@@ -117,7 +117,7 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :pen_name, :body, :email, :comments, :likes, :dislikes ,:writer_id, :genre, :tags, :slug ,:likees_count, :superwriter_id)
+      params.require(:publication).permit(:title, :pen_name, :body, :email, :comments, :likes, :dislikes ,:writer_id, :genre, :tags, :slug ,:likees_count, :superuser_id)
     end
 
     # Find publications using old id

@@ -4,20 +4,20 @@
 		.ui.black.card{:style => "float:left !important ; margin-right:5px !important; margin-left:15px !important;"}
 			.content
 				.ui.black.header
-					= link_to publication.title , publication 
+					= link_to publication.title , publication
 			.extra.content
 				= publication.genre
-				.right.floated 
+				.right.floated
 					= publication.tags
 			.extra.content
-				= link_to publications_publication_path(publication.writer) , :id => 'pen' do
+				= link_to "/archives/#{publication.writer_id}" , :id => 'pen' do
 					%i.spy.icon#pen
-					= publication.pen_name 
+					= publication.pen_name
 				.right.floated
 					%i.blue.comment.icon
 					- if !publication.comment_threads.blank?
 						#{publication.comment_threads.count}
-					- else 
+					- else
 						0
 
 			.extra.content
@@ -31,9 +31,9 @@
 						Dislikes
 						\#{publication.get_downvotes.size}
 
-			.extra.content  
+			.extra.content
 				.inline.field
 					-if writer_signed_in? && current_writer.id == publication.writer_id || writer_signed_in? && current_writer.email == publication.email || superuser_signed_in?
-					   
+
 						= link_to 'Edit', edit_publication_path(publication) ,:class => "ui inverted small green button"
 						= link_to 'Delete', publication, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "ui small inverted red button"
